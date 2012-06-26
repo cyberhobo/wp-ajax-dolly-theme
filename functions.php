@@ -25,10 +25,10 @@ class AjaxRecipesTheme {
 		);
 
 		add_action(
-			'wp_ajax_nopriv_ask_dolly',
+			'wp_ajax_nopriv_hello_dolly',
 			array( 
 				__CLASS__,
-				'action_wp_ajax_ask_dolly'
+				'action_wp_ajax_hello_dolly'
 			)
 		);
 	}
