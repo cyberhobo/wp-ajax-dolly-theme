@@ -24,6 +24,13 @@ class AjaxRecipesTheme {
 			)
 		);
 
+		add_action(
+			'wp_ajax_nopriv_ask_dolly',
+			array( 
+				__CLASS__,
+				'action_wp_ajax_ask_dolly'
+			)
+		);
 	}
 
 	static function action_admin_enqueue_scripts() {
