@@ -1,4 +1,22 @@
-<?php wp_enqueue_script( 'jquery' ); ?>
+<?php 
+wp_enqueue_script( 
+	'ajax-recipes-hello',
+	get_stylesheet_directory_uri() . '/hello.js',
+	array( 'jquery' ),
+	false,
+	true
+); 
+
+$hello_config = array( 
+	'ajaxurl' => admin_url( 'admin-ajax.php' )
+);
+
+wp_localize_script( 
+	'ajax-recipes-hello',
+	'ajaxRecipesConfig',
+	$hello_config
+);
+?>
 
 <?php get_header(); ?>
 
@@ -22,26 +40,4 @@
 	</div><!-- #content -->
 </div><!-- #primary -->
 
-<script>
-jQuery( function( $ ) {
-	var $message = $( '#ajax-recipe-dolly-message' ),
-		$spinner = $( '#ajax-recipe-spinner' );
-
-	$( '#ajax-recipe-impersonate-dolly' ).click( function() {
-		$message.hide();
-		$spinner.show();
-		$.ajax( {
-			url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-			data: { action: 'hello_dolly' },
-			dataType: 'text',
-			success: function( data ) {
-
-				$spinner.hide();
-				$message.show().html( data );
-
-			} 
-		} );
-	} );
-} );
-</script>
 <?php get_footer(); ?>
