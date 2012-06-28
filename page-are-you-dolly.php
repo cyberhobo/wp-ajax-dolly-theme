@@ -9,6 +9,12 @@
 
 		<button id="ajax-recipe-impersonate-dolly">I'm Dolly</button>
 
+		<p id="ajax-recipe-spinner" style="display:none;">
+			<img src="<?php 
+				echo get_stylesheet_directory_uri(); ?>/spinner.gif"
+				alt="..." />
+		</p>
+
 		<p id="ajax-recipe-dolly-message">
 		If you're Dolly, I have a message for you.
 		</p>
@@ -18,17 +24,20 @@
 
 <script>
 jQuery( function( $ ) {
-	var $message = $( '#ajax-recipe-dolly-message' );
+	var $message = $( '#ajax-recipe-dolly-message' ),
+		$spinner = $( '#ajax-recipe-spinner' );
 
 	$( '#ajax-recipe-impersonate-dolly' ).click( function() {
-		$message.html( '...' );
+		$message.hide();
+		$spinner.show();
 		$.ajax( {
 			url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
 			data: { action: 'hello_dolly' },
 			dataType: 'text',
 			success: function( data ) {
 
-				$message.html( data );
+				$spinner.hide();
+				$message.show().html( data );
 
 			} 
 		} );
