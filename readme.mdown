@@ -1,3 +1,4 @@
 = Ajax Dolly Theme =
 
-Some Ajax code examples intended for use with a [WordCamp talk](http://2012.reno.wordcamp.org/session/wordpress-ajax-recipes/).
+Some Ajax code examples intended for use with a [WordCamp](http://2012.reno.wordcamp.org/session/wordpress-ajax-recipes/)
+[talk](http://www.slideshare.net/cyberhobo/word-press-ajax).
